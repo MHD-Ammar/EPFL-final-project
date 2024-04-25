@@ -1,20 +1,35 @@
 from flask import Flask, render_template,request,redirect
 import json
 import datetime
-import flask
 
 app = Flask(__name__)
 today = datetime.date.today()
-# Class save the input of the user in Jsone file
+
+# Class definition to save the input of the user in Jsone file
 class patient:
-    def __init__ (self, patient_name, phone, compleain, date, time_slote ):
+
+    def __init__ (self, patient_name, phone, compleain, date, time_slot):
         self.patient_name = patient_name
         self.phone = phone
         self.compleain = compleain
         self.date = date 
-        self.time_slote = time_slote
-    def p(self):
-        print(self.patient_name)
+        self.time_slot = time_slot
+    
+    def store(self):
+        json_file = open("DB.json", "r")
+        data = json.load(json_file)
+        json_file.close()
+        sent_data = {"name": self.patient_name,
+        "phone": self.phone,
+        "compleain":self.compleain,
+        "date": self.date,
+        "time_slot": self.time_slot ,
+        "id": "1"}
+        data.append(sent_data)
+        json_file = open("DB.json", "w")
+        json.dump(data, json_file)
+        json_file.close()
+
     
 
 #Function for open file and read it
@@ -29,7 +44,7 @@ Schedule = json.load(json_file)
 json_file.close()
 day_schedule =[]
 for item in Schedule:
-    if item["day"] == str(today):
+    if item["date"] == str(today):
        day_schedule.append(item)
 
 #Delete from json
@@ -58,5 +73,6 @@ def reg():
     date = request.args.get("date")
     time_slot = request.args.get("time_slot")
     patient_data = patient(name, phone, compleain, date, time_slot)
-    patient_data.p()
+    patient_data.store() 
+    
     return "done"
