@@ -16,20 +16,32 @@ class patient:
         self.time_slot = time_slot
     
     def store(self):
-        json_file = open("DB.json", "r")
-        data = json.load(json_file)
-        json_file.close()
+
+        data = work_with_json("DB.json", "r")
+        max_id = 0
+        for item in data:
+            if item['id'] > max_id:
+                max_id = item['id']
         sent_data = {"name": self.patient_name,
         "phone": self.phone,
         "compleain":self.compleain,
         "date": self.date,
         "time_slot": self.time_slot ,
-        "id": "1"}
+        "id": (max_id +1)}
         data.append(sent_data)
         json_file = open("DB.json", "w")
         json.dump(data, json_file)
         json_file.close()
 
+
+    
+
+#function for open json file
+def work_with_json(file_name,status):
+        json_file = open(file_name, status)
+        data = json.load(json_file)
+        json_file.close()
+        return data
     
 
 #Function for open file and read it
@@ -39,9 +51,7 @@ def get_page(page_name):
     html_file.close()
     return content
 #Oben The json file that contain data of doctor Schedule
-json_file = open("DB.json")
-Schedule = json.load(json_file)
-json_file.close()
+Schedule = work_with_json("DB.json", "r")
 day_schedule =[]
 for item in Schedule:
     if item["date"] == str(today):
@@ -74,5 +84,4 @@ def reg():
     time_slot = request.args.get("time_slot")
     patient_data = patient(name, phone, compleain, date, time_slot)
     patient_data.store() 
-    
     return "done"
