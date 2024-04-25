@@ -1,10 +1,21 @@
 from flask import Flask, render_template,request,redirect
 import json
 import datetime
+import flask
 
 app = Flask(__name__)
-
 today = datetime.date.today()
+# Class save the input of the user in Jsone file
+class patient:
+    def __init__ (self, patient_name, phone, compleain, date, time_slote ):
+        self.patient_name = patient_name
+        self.phone = phone
+        self.compleain = compleain
+        self.date = date 
+        self.time_slote = time_slote
+    def p(self):
+        print(self.patient_name)
+    
 
 #Function for open file and read it
 def get_page(page_name):
@@ -35,3 +46,17 @@ def delete():
 @app.route("/")
 def home_page():
     return render_template("index.html", message = day_schedule)
+
+@app.route("/register")
+def register_page():
+    return get_page("templates/register.html")
+@app.route("/registered")
+def reg():
+    name = request.args.get("name")
+    phone = request.args.get("phone")
+    compleain = request.args.get("compleain")
+    date = request.args.get("date")
+    time_slot = request.args.get("time_slot")
+    patient_data = patient(name, phone, compleain, date, time_slot)
+    patient_data.p()
+    return "done"
