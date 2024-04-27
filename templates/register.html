@@ -13,6 +13,7 @@
 <body class="body-style">
     <div class="container-flued">
         <div class="row signin-form">
+            <!--form of register -->
             <form action="greeting" method="get">
                 <div class="form-group">
                     <label class="row">Enter Your name</label>
@@ -33,9 +34,10 @@
                     <label class="row">Enter date or your appointment</label>
                     <input type="date" class="form-control row" name="date" id="selected-date" min={{today}} required>
                 </div>
-
+                <!--time slot -->
                 <div class="row time-btn-row">
                     <div class="col-4">
+                        <!--check if the time slot is reserved-->
                         {%if '1' not in time_slot%}
                         <label>
                             <input type="radio" name="time_slot" value="1" required>
@@ -140,6 +142,7 @@
                         {%endif%}
                     </div>
                 </div>
+                <!--subiti button-->
                 <div class="d-flex justify-content-center">
                     <input type="submit" class="btn btn-primary sub-btn" value="Submit">
                 </div>

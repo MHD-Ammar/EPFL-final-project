@@ -5,7 +5,7 @@ const inPhone = document.getElementById("phone");
 const inCompleain = document.getElementById("compleain");
 
 
-
+//function to load the user input data from local storage and display as defult value
 const loadDefult = function () {
     const storedName = localStorage.getItem("name");
     const storedDate = localStorage.getItem("date");
@@ -21,7 +21,7 @@ const loadDefult = function () {
         inCompleain.value = storedCompleain;
 }
 
-
+//delet the patient from schedule when finshed
 if (cardContainer) {
     cardContainer.addEventListener('click', function (event) {
         if (event.target.classList.contains('completed')) {
@@ -38,11 +38,11 @@ if (cardContainer) {
         }
     });
 }
-
+//send the id to backend
 function deleteItem(id) {
     window.location.href = `/delete?id=${id}`
 }
-
+//save the data in local storage when the date is changed
 if (selectedDateInput) {
     selectedDateInput.addEventListener('change', function () {
         const selectedDate = this.value;

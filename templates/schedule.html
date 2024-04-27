@@ -11,6 +11,22 @@
 </head>
 
 <body>
+    <!--the nav bar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd !important;">
+        <a class="navbar-brand" href="/"><img src="/static/image/logo-no-background.png" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="/register">reserve</a>
+                <a class="nav-item nav-link" href="/admin">Dr Login</a>
+            </div>
+        </div>
+    </nav>
+    <!--use jnja to print the doctor schedual-->
     <div class="card-container">
         {% for item in message %}
         <div class="card text-center">
@@ -29,7 +45,7 @@
 
 
 
-
+    <!-- link javaScript file and bootsrap js file -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

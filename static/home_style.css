@@ -104,15 +104,15 @@
 }
 
 
-/**/
-.testimonial-card .card-up {
+/*reviw */
+.review-card .card-up {
     height: 120px;
     overflow: hidden;
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem;
 }
 
-.testimonial-card .avatar {
+.review-card .avatar {
     width: 110px;
     margin-top: -60px;
     overflow: hidden;
