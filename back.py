@@ -2,7 +2,8 @@ from flask import Flask, render_template,request,redirect
 import json
 import datetime
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
+
 today = datetime.date.today()
 
 # Class definition to save the input of the user in Jsone file
@@ -16,7 +17,6 @@ class patient:
         self.time_slot = time_slot
     
     def store(self):
-
         data = work_with_json("DB.json", "r")
         max_id = 0
         for item in data:
@@ -32,6 +32,7 @@ class patient:
         json_file = open("DB.json", "w")
         json.dump(data, json_file)
         json_file.close()
+
 
 
     
@@ -62,19 +63,34 @@ for item in Schedule:
 def delete():
     id = request.args.get("id")
     for item in day_schedule:
-        if item["id"] == str(id): 
+        if item["id"] == int(id):
             day_schedule.remove(item)
-    return redirect("/")
+    return redirect("admin")
+
+@app.route("/date")
+def date():
+    day_time = []
+    date = request.args.get("d")
+    Schedule = work_with_json("DB.json", "r")
+    for item in Schedule:
+        if item["date"] == date:
+            day_time.append(item["time_slot"])
+    
+
+    return render_template( "index.html" , time_slot = day_time)
 
 
+
+
+@app.route("/admin")
+def home_page():
+    return render_template("schedule.html", message = day_schedule)
 
 @app.route("/")
-def home_page():
-    return render_template("index.html", message = day_schedule)
-
-@app.route("/register")
 def register_page():
-    return get_page("templates/register.html")
+    Schedule = work_with_json("DB.json", "r")
+    return render_template("index.html" , today = str(today))
+
 @app.route("/registered")
 def reg():
     name = request.args.get("name")
