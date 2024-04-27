@@ -1,4 +1,7 @@
-/*html*/
+* {
+    font-family: 'Cairo', sans-serif;
+}
+
 .body-style {
     margin: auto;
     box-shadow: 3px;
@@ -7,7 +10,7 @@
     align-items: center;
     min-height: 100vh;
     background-color: cadetblue;
-    background-image: url("bg1.jpg");
+    background-image: url("image/bg1.jpg");
     background-size: contain;
     background-repeat: round;
 
@@ -45,7 +48,7 @@ input[type="radio"] {
 
 .time-btn-row {
     height: 45.6px;
-    width: 420.112px;
+    width: 418.112px;
 }
 
 /**/

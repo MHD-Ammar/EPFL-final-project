@@ -1,0 +1,127 @@
+/* navBAr*/
+.navbar-brand img {
+    height: 50px;
+}
+
+.nav-item {
+    text-align: left;
+
+}
+
+
+/*slogan*/
+.slogan-img {
+    background-image: url(image/usman-yousaf.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+}
+
+.slogan img {
+    margin-top: 50px;
+    max-width: 100%;
+}
+
+
+
+.slogan-img h1 {
+    margin: 150px 20px 20px 20px;
+    font-size: 40px;
+    color: #e3f2fd;
+
+
+}
+
+.slogan-img a:hover {
+    text-decoration: none;
+}
+
+.btn-color {
+    background-color: #0074d9 !important;
+}
+
+/*About-us*/
+.about-us {
+    width: 100%;
+    margin: auto;
+    height: 450px;
+}
+
+.header {
+    text-align: center;
+    margin: 20px;
+    font-family: 'Cairo', sans-serif !important;
+}
+
+.about-us img {
+    max-width: 100%;
+}
+
+
+.line {
+    width: 100px;
+    background-color: #3aade6;
+    height: 3px;
+    margin: 10px auto 70px auto;
+}
+
+.text {
+    padding-top: 100px !important;
+}
+
+.text h4 {
+    line-height: 150% !important;
+
+}
+
+
+
+
+/*footer*/
+
+.footer {
+    background-image: url(image/footer.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.footer-img {
+    margin: 4% 0;
+    height: 100px;
+}
+
+.footer-content {
+    color: white;
+    margin-left: 100px;
+}
+
+
+.footer-content i {
+    color: white;
+    font-size: 30px;
+    margin: 0 15px;
+}
+
+
+/**/
+.testimonial-card .card-up {
+    height: 120px;
+    overflow: hidden;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+
+.testimonial-card .avatar {
+    width: 110px;
+    margin-top: -60px;
+    overflow: hidden;
+    border: 3px solid #fff;
+    border-radius: 50%;
+}
+
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+
+}

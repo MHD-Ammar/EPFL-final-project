@@ -13,7 +13,7 @@
 <body class="body-style">
     <div class="container-flued">
         <div class="row signin-form">
-            <form action="registered" method="get">
+            <form action="greeting" method="get">
                 <div class="form-group">
                     <label class="row">Enter Your name</label>
                     <input type="text" class="form-control row" placeholder="Enter your name" name="name" id="name"
@@ -47,17 +47,16 @@
                     <div class="col-4">
                         {%if '2' not in time_slot%}
                         <label>
-                            <input type="radio" name="time_slot" value="2">
+                            <input type="radio" name="time_slot" value="2" required>
                             <span class="btn btn-light">09:30 AM</span>
                         </label>
                         {%endif%}
-
                     </div>
 
                     <div class="col-4">
                         {%if '3' not in time_slot%}
                         <label>
-                            <input type="radio" name="time_slot" value="3">
+                            <input type="radio" name="time_slot" value="3" required>
                             <span class="btn btn-light">10:00 AM</span>
                         </label>
                         {%endif%}
@@ -75,7 +74,7 @@
                     <div class="col-4">
                         {%if '5' not in time_slot%}
                         <label>
-                            <input type="radio" name="time_slot" value="5">
+                            <input type="radio" name="time_slot" value="5" required>
                             <span class="btn btn-light">11:00 AM</span>
                         </label>
                         {%endif%}
@@ -83,7 +82,7 @@
                     <div class="col-4">
                         {%if '6' not in time_slot%}
                         <label>
-                            <input type="radio" name="time_slot" value="6">
+                            <input type="radio" name="time_slot" value="6" required>
                             <span class="btn btn-light">11:30 AM</span>
                         </label>
                         {%endif%}

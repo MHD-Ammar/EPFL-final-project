@@ -34,8 +34,10 @@ class patient:
         json_file.close()
 
     def greeting(self):
-        print("Hello" + self.patient_name)
-        print ("your appointment will be in  on" )
+        greeting_page = open("templates/greeting.html")
+        content = greeting_page.read()
+        greeting_page.close()
+        return content.replace("$$name$$",self.patient_name)
 
 
 
@@ -49,12 +51,7 @@ def work_with_json(file_name,status):
         return data
     
 
-#Function for open file and read it
-def get_page(page_name):
-    html_file = open(page_name)
-    content = html_file.read()
-    html_file.close()
-    return content
+
 #Oben The json file that contain data of doctor Schedule
 Schedule = work_with_json("DB.json", "r")
 day_schedule =[]
@@ -62,6 +59,11 @@ for item in Schedule:
     if item["date"] == str(today):
        day_schedule.append(item)
 
+
+
+@app.route("/")
+def home():
+    return render_template("index.html")
 #Delete from json
 @app.route("/delete")
 def delete():
@@ -87,7 +89,7 @@ def register_page():
     Schedule = work_with_json("DB.json", "r")
     return render_template("register.html" , today = str(today))
 
-@app.route("/registered")
+@app.route("/greeting")
 def reg():
     name = request.args.get("name")
     phone = request.args.get("phone")
@@ -96,7 +98,11 @@ def reg():
     time_slot = request.args.get("time_slot")
     patient_data = patient(name, phone, compleain, date, time_slot)
     patient_data.store() 
-    return "done"
+    return patient_data.greeting()
+
+@app.route("/welcome")
+def greeting_page():
+    return 
 
 @app.route("/schedule")
 def schedule_page():
