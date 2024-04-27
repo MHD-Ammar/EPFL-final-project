@@ -11,13 +11,13 @@ const loadDefult = function () {
     const storedDate = localStorage.getItem("date");
     const storedPhone = localStorage.getItem("phone");
     const storedCompleain = localStorage.getItem("compleain");
-    if (storedName)
+    if (storedName && inName)
         inName.value = storedName;
-    if (storedDate)
+    if (storedDate && selectedDateInput)
         selectedDateInput.value = storedDate;
-    if (storedPhone)
+    if (storedPhone && inPhone)
         inPhone.value = storedPhone;
-    if (storedCompleain)
+    if (storedCompleain && inCompleain)
         inCompleain.value = storedCompleain;
 }
 
@@ -43,15 +43,18 @@ function deleteItem(id) {
     window.location.href = `/delete?id=${id}`
 }
 
+if (selectedDateInput) {
+    selectedDateInput.addEventListener('change', function () {
+        const selectedDate = this.value;
+        localStorage.setItem("name", inName.value);
+        localStorage.setItem("phone", inPhone.value);
+        localStorage.setItem("compleain", inCompleain.value);
+        localStorage.setItem("date", selectedDate);
+        window.location.href = `/date?d=${selectedDate}`
 
-selectedDateInput.addEventListener('change', function () {
-    const selectedDate = this.value;
-    localStorage.setItem("name", inName.value);
-    localStorage.setItem("phone", inPhone.value);
-    localStorage.setItem("compleain", inCompleain.value);
-    localStorage.setItem("date", selectedDate);
-    window.location.href = `/date?d=${selectedDate}`
+    });
+}
 
-});
 
 loadDefult();
+

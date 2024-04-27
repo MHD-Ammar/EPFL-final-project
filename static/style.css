@@ -1,3 +1,4 @@
+/*html*/
 .body-style {
     margin: auto;
     box-shadow: 3px;
@@ -6,6 +7,9 @@
     align-items: center;
     min-height: 100vh;
     background-color: cadetblue;
+    background-image: url("bg1.jpg");
+    background-size: contain;
+    background-repeat: round;
 
 }
 
@@ -16,7 +20,7 @@
 .signin-form {
     background-color: white;
     border-radius: 20px;
-    opacity: 0.9;
+    opacity: 0.8;
     padding: 30px;
 }
 
@@ -33,4 +37,12 @@
 
 input[type="radio"]:checked+.btn {
     background-color: #149950 !important;
+}
+
+/**/
+
+.sub-btn {
+    width: 150px;
+    text-align: center;
+    margin-top: 20px;
 }

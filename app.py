@@ -1,4 +1,4 @@
-from flask import Flask, render_template,request,redirect
+from flask import Flask, render_template, request, redirect, flash
 import json
 import datetime
 
@@ -33,6 +33,10 @@ class patient:
         json.dump(data, json_file)
         json_file.close()
 
+    def greeting(self):
+        print("Hello" + self.patient_name)
+        print ("your appointment will be in  on" )
+
 
 
     
@@ -65,7 +69,7 @@ def delete():
     for item in day_schedule:
         if item["id"] == int(id):
             day_schedule.remove(item)
-    return redirect("admin")
+    return redirect("schedule")
 
 @app.route("/date")
 def date():
@@ -75,21 +79,13 @@ def date():
     for item in Schedule:
         if item["date"] == date:
             day_time.append(item["time_slot"])
-    
-
-    return render_template( "index.html" , time_slot = day_time)
+    return render_template( "register.html" , time_slot = day_time)
 
 
-
-
-@app.route("/admin")
-def home_page():
-    return render_template("schedule.html", message = day_schedule)
-
-@app.route("/")
+@app.route("/register")
 def register_page():
     Schedule = work_with_json("DB.json", "r")
-    return render_template("index.html" , today = str(today))
+    return render_template("register.html" , today = str(today))
 
 @app.route("/registered")
 def reg():
@@ -101,3 +97,24 @@ def reg():
     patient_data = patient(name, phone, compleain, date, time_slot)
     patient_data.store() 
     return "done"
+
+@app.route("/schedule")
+def schedule_page():
+    return render_template("schedule.html", message = day_schedule)
+
+@app.route("/admin")
+def login_page():
+    return render_template("admin.html")
+
+@app.route("/check") 
+def check_login():
+    username = request.args.get("username")
+    password = request.args.get("password")
+    if username == "doctor" and password == "topsecret":
+        return redirect("/schedule")
+    else:
+        return redirect("/admin")
+   
+        
+
+
