@@ -39,6 +39,15 @@ input[type="radio"]:checked+.btn {
     background-color: #149950 !important;
 }
 
+input[type="radio"] {
+    opacity: 0;
+}
+
+.time-btn-row {
+    height: 45.6px;
+    width: 420.112px;
+}
+
 /**/
 
 .sub-btn {

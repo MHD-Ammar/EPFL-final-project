@@ -16,37 +16,39 @@
             <form action="registered" method="get">
                 <div class="form-group">
                     <label class="row">Enter Your name</label>
-                    <input type="text" class="form-control row" placeholder="Enter your name" name="name" id="name">
+                    <input type="text" class="form-control row" placeholder="Enter your name" name="name" id="name"
+                        required>
                 </div>
                 <div class="form-group">
                     <label class="row">Phone</label>
-                    <input type="phone" class="form-control row" placeholder="Phone" name="phone" id="phone">
+                    <input type="phone" class="form-control row" placeholder="Phone" name="phone" id="phone" required>
                 </div>
                 <div class="form-group">
                     <label class="row">What are you suffering about?</label>
-                    <input type="phone" class="form-control row" placeholder="Enter your spcific compleain"
+                    <input type="phone" class="form-control row" placeholder="Enter your spcific compleain" required
                         name="compleain" id="compleain">
                 </div>
 
                 <div class="form-group">
                     <label class="row">Enter date or your appointment</label>
-                    <input type="date" class="form-control row" name="date" id="selected-date" min={{today}}>
+                    <input type="date" class="form-control row" name="date" id="selected-date" min={{today}} required>
                 </div>
 
-                <div class="row">
+                <div class="row time-btn-row">
                     <div class="col-4">
                         {%if '1' not in time_slot%}
-                        <label><input type="radio" name="time_slot" style="opacity: 0;" value="1"> <span
-                                class="btn btn-light">09:00AM</span>
+                        <label>
+                            <input type="radio" name="time_slot" value="1" required>
+                            <span class="btn btn-light">09:00 AM</span>
                         </label>
                         {%endif%}
                     </div>
 
-
                     <div class="col-4">
                         {%if '2' not in time_slot%}
-                        <label> <input type="radio" name="time_slot" value="2" style="opacity: 0;"><span
-                                class="btn btn-light"> 09:30 AM</span>
+                        <label>
+                            <input type="radio" name="time_slot" value="2">
+                            <span class="btn btn-light">09:30 AM</span>
                         </label>
                         {%endif%}
 
@@ -55,77 +57,86 @@
                     <div class="col-4">
                         {%if '3' not in time_slot%}
                         <label>
-                            <input type="radio" name="time_slot" value="3" style="opacity: 0;"><span
-                                class="btn btn-light"> 10:00 AM</span>
+                            <input type="radio" name="time_slot" value="3">
+                            <span class="btn btn-light">10:00 AM</span>
                         </label>
                         {%endif%}
                     </div>
                 </div>
-                <div class="row">
+                <div class="row time-btn-row">
                     <div class="col-4">
                         {%if '4' not in time_slot%}
-                        <label> <input type="radio" name="time_slot" value="4" style="opacity: 0;"><span
-                                class="btn btn-light"> 10:30 AM</span>
+                        <label>
+                            <input type="radio" name="time_slot" value="4" required>
+                            <span class="btn btn-light">10:30 AM</span>
                         </label>
                         {%endif%}
                     </div>
                     <div class="col-4">
                         {%if '5' not in time_slot%}
-                        <label> <input type="radio" name="time_slot" value="5" style="opacity: 0;"><span
-                                class="btn btn-light"> 11:00 AM</span>
+                        <label>
+                            <input type="radio" name="time_slot" value="5">
+                            <span class="btn btn-light">11:00 AM</span>
                         </label>
                         {%endif%}
                     </div>
                     <div class="col-4">
                         {%if '6' not in time_slot%}
-                        <label> <input type="radio" name="time_slot" value="6" style="opacity: 0;"><span
-                                class="btn btn-light"> 11:30 AM</span>
+                        <label>
+                            <input type="radio" name="time_slot" value="6">
+                            <span class="btn btn-light">11:30 AM</span>
                         </label>
                         {%endif%}
                     </div>
                 </div>
-                <div class="row">
+                <div class="row time-btn-row">
                     <div class="col-4">
                         {%if '7' not in time_slot%}
-                        <label> <input type="radio" name="time_slot" value="7" style="opacity: 0;"><span
-                                class="btn btn-light"> 12:00 PM</span>
+                        <label>
+                            <input type="radio" name="time_slot" value="7">
+                            <span class="btn btn-light">12:00 PM</span>
                         </label>
                         {%endif%}
                     </div>
                     <div class="col-4">
                         {%if '8' not in time_slot%}
-                        <label> <input type="radio" name="time_slot" value="8" style="opacity: 0;"><span
-                                class="btn btn-light"> 12:30 PM</span>
+                        <label>
+                            <input type="radio" name="time_slot" value="8">
+                            <span class="btn btn-light">12:30 PM</span>
                         </label>
                         {%endif%}
                     </div>
                     <div class="col-4">
                         {%if '9' not in time_slot%}
-                        <label> <input type="radio" name="time_slot" value="9" style="opacity: 0;"><span
-                                class="btn btn-light"> 01:00 PM</span>
+                        <label>
+                            <input type="radio" name="time_slot" value="9">
+                            <span class="btn btn-light">01:00 PM</span>
                         </label>
                         {%endif%}
                     </div>
                 </div>
-                <div class="row">
+                <div class="row time-btn-row">
                     <div class="col-4">
                         {%if '10' not in time_slot%}
-                        <label> <input type="radio" name="time_slot" value="10" style="opacity: 0;"><span
-                                class="btn btn-light"> 01:30 PM</span>
+                        <label>
+                            <input type="radio" name="time_slot" value="10">
+                            <span class="btn btn-light">01:30 PM</span>
                         </label>
                         {%endif%}
                     </div>
                     <div class="col-4">
                         {%if '11' not in time_slot%}
-                        <label> <input type="radio" name="time_slot" value="11" style="opacity: 0;"><span
-                                class="btn btn-light"> 02:00 PM</span>
+                        <label>
+                            <input type="radio" name="time_slot" value="11">
+                            <span class="btn btn-light">02:00 PM</span>
                         </label>
                         {%endif%}
                     </div>
                     <div class="col-4">
                         {%if '12' not in time_slot%}
-                        <label> <input type="radio" name="time_slot" value="12" style="opacity: 0;"><span
-                                class="btn btn-light"> 02:30 PM</span>
+                        <label>
+                            <input type="radio" name="time_slot" value="12">
+                            <span class="btn btn-light">02:30 PM</span>
                         </label>
                         {%endif%}
                     </div>
