@@ -27,7 +27,7 @@ well as the names of two properties and two methods.
   - Line number(s) for the class definition: 11
   - Name of two properties: patient_name, phone, complean, date, time_slot
   - Name of two methods: store() , greeting()
-  - File name and line numbers where the methods are used: file name :app.py line number:104 , 105
+  - File name and line numbers where the methods are used: file name :app.py line number:98 , 99
 - [x] It makes use of JavaScript in the front end and uses the localStorage of the web browser. 
 - [x] It uses modern JavaScript (for example, let and const 
 rather than var). 

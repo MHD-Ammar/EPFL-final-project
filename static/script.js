@@ -19,6 +19,7 @@ const loadDefult = function () {
         inPhone.value = storedPhone;
     if (storedCompleain && inCompleain)
         inCompleain.value = storedCompleain;
+    localStorage.clear();
 }
 
 //delet the patient from schedule when finshed
@@ -31,10 +32,6 @@ if (cardContainer) {
                 cardToHide.classList.add('hidden');
                 deleteItem(id)
             }
-            cardToHide.addEventListener('transitionend', function () {
-                cardToHide.parentNode.removeChild(cardToHide); // Remove from DOM 
-                cardToHide.style.display = "none"
-            });
         }
     });
 }

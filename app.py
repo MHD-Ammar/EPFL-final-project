@@ -20,6 +20,7 @@ class patient:
     def store(self):
         data = work_with_json("DB.json", "r")
         max_id = 0 
+    
         #check the biges id 
         for item in data:
             if item['id'] > max_id:
@@ -30,21 +31,20 @@ class patient:
         "date": self.date,
         "time_slot": self.time_slot ,
         "id": (max_id +1)}
+    
         #append the data in the json file
         data.append(sent_data)
         json_file = open("DB.json", "w")
         json.dump(data, json_file)
         json_file.close()
+    
         #method to sed the username and greeting thim after register
     def greeting(self):
         greeting_page = open("templates/greeting.html")
         content = greeting_page.read()
         greeting_page.close()
-        return content.replace("$$name$$",self.patient_name)
-
-
-
-    
+        times = {"1":"09:00","2":"09:30","3":"10:00","4":"10:30","5":"11:00","6":"11:30","7":"12:00","8":"12:30","9":"01:00","10":"01:30","11":"02:00","12":"02:30"}
+        return content.replace("$$name$$",self.patient_name).replace("$$compleain$$",self.compleain).replace("$$time$$",(times[self.time_slot]))
 
 #function for open json file
 def work_with_json(file_name, status):
@@ -53,8 +53,6 @@ def work_with_json(file_name, status):
         json_file.close()
         return data
     
-
-
 #Oben The json file that contain data of doctor Schedule
 Schedule = work_with_json("DB.json", "r")
 day_schedule =[]

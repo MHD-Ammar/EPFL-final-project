@@ -28,17 +28,20 @@
     </nav>
     <!--use jnja to print the doctor schedual-->
     <div class="card-container">
+        {% set times=
+        {"1":"09:00","2":"09:30","3":"10:00","4":"10:30","5":"11:00","6":"11:30","7":"12:00","8":"12:30","9":"01:00","10":"01:30","11":"02:00","12":"02:30"}%}
         {% for item in message %}
         <div class="card text-center">
             <div class="card-header">
                 {{item["id"]}}
             </div>
             <div class="card-body">
-                <h5 class="card-title">{{item["name"]}}</h5>
-                <p class="card-text">{{item["compleain"]}}.</p>
+                <h5 class="card-title">Patient Name: {{item["name"]}} </h5>
+                <p class="card-text">{{item["compleain"]}}</p>
+                <p class="card-text">{{item["date"]}}</p>
+                <p class="card-text">{{times[item["time_slot"]]}}</p>
                 <a class="btn btn-primary completed">completed</a>
             </div>
-
         </div>
         {% endfor %}
     </div>
