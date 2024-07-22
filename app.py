@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect #import flask
 import json #import json
 import datetime #import datetime
-
+# python -m flask --app app.py --debug run
 app = Flask(__name__, template_folder='templates')
 
 #use datetime to know the date of today

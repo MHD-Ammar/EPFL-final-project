@@ -65,8 +65,20 @@ input[type="radio"] {
 /* navBAr*/
 .navbar-brand img {
     height: 50px;
+
 }
 
 .nav-item {
     text-align: left;
+}
+
+.card-header {
+    background-color: #0074d917 !important;
+}
+
+.schedual-img {
+    background-image: url('../static/image/schedual.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 400px;
 }
